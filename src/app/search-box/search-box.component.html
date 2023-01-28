@@ -1,0 +1,42 @@
+<form class="" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div
+    (click)="toggleHistory()"
+    class="relative border border-gray-400 py-3"
+    [ngClass]="{
+      'rounded-t-3xl': showHistory,
+      'rounded-3xl': !showHistory,
+      'hover:shadow-lg': showHistory
+    }"
+  >
+    <div class="flex px-5">
+      <fa-icon
+        *ngIf="!showHistory"
+        class="h-6 pr-1 text-gray-500 hover:scale-110 hover:text-black cursor-pointer"
+        [icon]="faSearch"
+      ></fa-icon>
+      <fa-icon
+        *ngIf="showHistory"
+        class="h-6 pr-1 text-gray-500 hover:scale-110 hover:text-black cursor-pointer"
+        [icon]="faArrowUp"
+      ></fa-icon>
+      <input
+        type="text"
+        class="focus:outline-none flex-grow"
+        name="searchTerm"
+        ngModel
+        required
+      />
+    </div>
+    <div
+      class="border border-gray-400 absolute top-12 bg-white z-50 flex flex-col w-full shadow-lg rounded-b-3xl focus-within:shadow-lg pb-4"
+      [ngClass]="{ hidden: !showHistory }"
+    >
+      <div
+        *ngFor="let item of history"
+        class="px-5 flex items-center justify-between py-1 hover:bg-gray-100 cursor-pointer"
+      >
+        {{ item.text }}
+      </div>
+    </div>
+  </div>
+</form>
