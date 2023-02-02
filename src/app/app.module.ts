@@ -8,12 +8,14 @@ import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from 'app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { SearchOptionsComponent } from './search-options/search-options.component';
 @NgModule({
   declarations: [
     AppComponent,
     SearchBoxComponent,
     SearchComponent,
-    HomeComponent
+    HomeComponent,
+    SearchOptionsComponent
   ],
   imports: [
     BrowserModule,
