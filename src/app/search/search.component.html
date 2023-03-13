@@ -1,21 +1,35 @@
-<div class="sticky top-0 bg-white border-b z-50 px-16">
-  <div class="flex flex-col items-center sm:items-start">
-    <div
-      class="flex flex-col sm:flex-row items-center sm:gap-4 py-5 w-full space-y-4 sm:space-y-0"
-    >
-      <h1
-        class="text-3xl hover: cursor-pointer font-test font-bold bg-clip-text bg-gradient-to-r from-primary-400 to-primary-800"
-        [ngStyle]="{ color: 'transparent' }"
-        [routerLink]="['/']"
+<div class="container mx-auto sm:px-16 px-10">
+  <div class="sticky top-0 bg-white border-b z-50">
+    <div class="flex flex-col items-center sm:items-start">
+      <div
+        class="flex flex-col sm:flex-row items-center sm:gap-4 py-5 w-full space-y-4 sm:space-y-0"
       >
-        Ng Search
-      </h1>
-      <div class="w-1/2">
-        <app-search-box></app-search-box>
+        <h1
+          class="text-3xl hover: cursor-pointer font-test font-bold bg-clip-text bg-gradient-to-r from-primary-400 to-primary-800"
+          [ngStyle]="{ color: 'transparent' }"
+          [routerLink]="['/']"
+        >
+          Ng Search
+        </h1>
+        <div class="w-1/2">
+          <app-search-box [displaySearchButton]="false"></app-search-box>
+        </div>
+      </div>
+      <div class="">
+        <app-search-options></app-search-options>
       </div>
     </div>
-    <div class="">
-      <app-search-options></app-search-options>
-    </div>
+  </div>
+
+  <div class="pt-6">
+    <app-web *ngIf="searchType === 'web'" [result]="webResult"></app-web>
+    <app-image
+      *ngIf="searchType === 'image'"
+      [result]="imageResult"
+    ></app-image>
+    <app-video
+      *ngIf="searchType === 'video'"
+      [result]="videoResult"
+    ></app-video>
   </div>
 </div>

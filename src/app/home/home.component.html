@@ -1,11 +1,16 @@
-<div class="flex flex-col items-center mt-28 mx-auto container">
+<div class="flex flex-col items-center mt-28 mx-auto container px-2">
   <h1
-    class="text-7xl pb-5 font-test font-bold bg-clip-text bg-gradient-to-r from-primary-400 to-primary-800"
+    class="sm:text-7xl text-5xl pb-5 font-test font-bold bg-clip-text bg-gradient-to-r from-primary-400 to-primary-800"
     [ngStyle]="{ color: 'transparent' }"
   >
     Ng Search
   </h1>
   <div class="w-1/2">
-    <app-search-box></app-search-box>
+    <app-search-box [displaySearchButton]="true"></app-search-box>
   </div>
+  <!-- <button (click)=""
+    class="mt-2 bg-gray-300 ring-pink-300 focus:outline-none text-gray-800 hover:bg-primary-500 hover:shadow-lg hover:text-white font-semibold pt-1 pb-2 px-6 rounded-full transition duration-300 ease-in-out"
+  >
+    Search
+  </button> -->
 </div>

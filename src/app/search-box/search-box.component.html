@@ -1,14 +1,14 @@
-<form class="" #f="ngForm" (ngSubmit)="onSubmit(f)">
+<form class="flex flex-col items-center" #f="ngForm" (ngSubmit)="onSubmit(f)">
   <div
     (click)="toggleHistory()"
-    class="relative border border-gray-400 py-3"
+    class="relative border border-gray-400 py-3 self-stretch"
     [ngClass]="{
       'rounded-t-3xl': showHistory,
       'rounded-3xl': !showHistory,
       'hover:shadow-lg': showHistory
     }"
   >
-    <div class="flex px-5 pr-8 overflow-hidden">
+    <div class="flex px-5 sm:pr-8 pr-4">
       <fa-icon
         *ngIf="!showHistory"
         class="h-6 pr-2 text-gray-500 hover:scale-110 hover:text-black cursor-pointer"
@@ -21,27 +21,39 @@
       ></fa-icon>
       <input
         type="text"
-        class="focus:outline-none grow"
+        class="focus:outline-none w-1/2 grow"
         name="searchTerm"
         [(ngModel)]="searchTerm"
         required
       />
+      <fa-icon
+        (click)="clearInput(f)"
+        class="h-6 pr-2 text-gray-500 hover:scale-110 hover:text-black cursor-pointer"
+        [icon]="faXmark"
+      ></fa-icon>
     </div>
     <div
       class="border border-gray-400 absolute top-12 bg-white z-50 flex flex-col w-full shadow-lg rounded-b-3xl focus-within:shadow-lg pb-4"
       [ngClass]="{ hidden: !showHistory }"
     >
       <div
-        *ngFor="let item of history"
+        *ngFor="let item of history | slice : 0 : 5"
         class="px-5 flex items-center py-1 hover:bg-gray-100 cursor-pointer"
-        (click)="loadTerm(item.text)"
+        (click)="loadTerm(item, f)"
       >
         <fa-icon
           class="h-6 pr-2 text-gray-400 hover:scale-110 hover:text-black cursor-pointer"
           [icon]="faClock"
         ></fa-icon>
-        <p>{{ item.text }}</p>
+        <p>{{ item }}</p>
       </div>
     </div>
   </div>
+  <button
+    *ngIf="displaySearchButton"
+    type="submit"
+    class="mt-2 bg-gray-300 ring-pink-300 focus:outline-none text-gray-800 hover:bg-primary-500 hover:shadow-lg hover:text-white font-semibold pt-1 pb-2 px-6 rounded-lg transition duration-300 ease-in-out"
+  >
+    Search
+  </button>
 </form>

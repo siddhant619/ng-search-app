@@ -1,0 +1,25 @@
+<div class="w-full">
+  <!-- <iframe
+    class="w-full h-96"
+    title="video player"
+    
+  ></iframe> -->
+  <iframe
+    class="w-full h-96"
+    [src]="getUrl()"
+    title="YouTube video player"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<div class="mt-4 pr-8">
+  <div class="text-xl font-semibold line-clamp-2">{{ currentVideo.title }}</div>
+  <div class="mt-1 line-clamp-2">
+    {{
+      currentVideo.pagemap.videoobject[0].description
+        ? currentVideo.pagemap.videoobject[0].description
+        : ""
+    }}
+  </div>
+</div>

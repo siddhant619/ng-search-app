@@ -1,0 +1,31 @@
+<div class="flex gap-8 flex-wrap justify-center sm:justify-start">
+  <!-- <div *ngFor="let item of result">
+    <div
+      [ngStyle]="{ height: '180px', minWidth: '180px' }"
+      class="hover:shadow-2xl"
+    >
+      <img src="{{ item.url }}" [ngStyle]="{ height: '100%' }" />
+    </div>
+    <a
+      class="text-gray-600 text-sm overflow-hidden line-clamp-1 hover:underline"
+      [ngStyle]="{ maxWidth: '180px' }"
+      href="{{ item.contextLink }}"
+      target="_blank"
+    >
+      {{ item.title }}
+    </a>
+  </div> -->
+  <div *ngFor="let item of result">
+    <div [ngStyle]="{ minWidth: '180px' }" class="h-44 hover:shadow-2xl">
+      <img src="{{ item.url }}" [ngStyle]="{ height: '100%' }" />
+    </div>
+    <a
+      class="text-gray-600 font-semibold text-sm overflow-hidden line-clamp-1 hover:underline"
+      [ngStyle]="{ maxWidth: '180px' }"
+      href="{{ item.contextLink }}"
+      target="_blank"
+    >
+      {{ item.title }}
+    </a>
+  </div>
+</div>

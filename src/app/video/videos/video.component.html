@@ -1,0 +1,22 @@
+<div>
+  <div *ngFor="let item of result" class="mb-5 max-w-2xl break-words">
+    <p class="text-sm text-gray-800">{{ item.urlText }}</p>
+    <a href="{{ item.url }}" target="_blank">
+      <p
+        class="sm:truncate text-xl sm:text-2xl text-primary-600 font-medium hover:underline mb-1"
+      >
+        {{ item.title }}
+      </p>
+    </a>
+    <div class="flex gap-2">
+      <div
+        class="w-1/4"
+        [ngStyle]="{ width: '20rem' }"
+        *ngIf="item.thumbnail_src !== ''"
+      >
+        <img class="h-auto w-full" src="{{ item.thumbnail_src }}" />
+      </div>
+      <p class="sm:line-clamp-none line-clamp-2">{{ item.description }}</p>
+    </div>
+  </div>
+</div>
